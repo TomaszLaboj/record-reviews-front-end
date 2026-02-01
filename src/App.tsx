@@ -1,14 +1,31 @@
-import { useState } from 'react'
-import './App.css'
+import {
+  RouterProvider,
+  createBrowserRouter
+} from "react-router-dom";
+import CurrentReview from "./components/CurrentReview";
+import Archives from "./components/Archives";
+import RootLayout from "./Root";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+const router = createBrowserRouter([
+  {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        {
+          path: "current-review",
+          element: <CurrentReview />,
+        },
+        {
+          path: "archives",
+          element: <Archives />,
+        },
+      ],
+    },
+])
 
   return (
-    <>
-      <h1>Plytowe recencje</h1>
-    </>
-  )
+     <RouterProvider router={router} />
+  );
 }
-
-export default App
+export default App;
