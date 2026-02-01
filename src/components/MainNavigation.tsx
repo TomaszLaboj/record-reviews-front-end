@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./MainNavigation.css";
+import Title from "./Title";
 
 function MainNavigation() {
   return (
@@ -7,7 +8,9 @@ function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">
+                <Title />
+            </NavLink>
           </li>
           <li>
             <NavLink to="/current-review" end>
